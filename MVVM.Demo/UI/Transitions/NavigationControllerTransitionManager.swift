@@ -17,15 +17,12 @@ class NavigationControllerTransitionManager: NSObject, UINavigationControllerDel
             return getAnimationControllerForPop(navigationController, from: fromVC, to: toVC)
         case .none:
             return nil
+        @unknown default:
+            fatalError("Please support all cases.")
         }
     }
     
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        //        switch animationController {
-        //        case let transitionManager as DefaultPushTransitionManager:
-        //            return transitionManager.interactionControllerForDismissal(using: transitionManager)
-        //        default: return nil
-        //        }
         return nil
     }
     

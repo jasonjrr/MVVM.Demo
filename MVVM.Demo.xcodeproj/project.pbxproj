@@ -485,18 +485,18 @@
 				TargetAttributes = {
 					CDFC0CB02089146200099B18 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					CDFC0CC42089146200099B18 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CDFC0CB02089146200099B18;
 					};
 					CDFC0CCF2089146200099B18 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CDFC0CB02089146200099B18;
 					};
@@ -814,9 +814,9 @@
 				);
 				INFOPLIST_FILE = MVVM.Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.demo.mvvm.MVVM-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -833,9 +833,9 @@
 				);
 				INFOPLIST_FILE = MVVM.Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.demo.mvvm.MVVM-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -856,7 +856,7 @@
 				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-DemoTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM.Demo.app/MVVM.Demo";
 			};
@@ -878,7 +878,7 @@
 				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-DemoTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM.Demo.app/MVVM.Demo";
 			};
@@ -893,7 +893,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-DemoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MVVM.Demo;
 			};
@@ -908,7 +908,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-DemoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MVVM.Demo;
 			};
