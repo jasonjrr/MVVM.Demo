@@ -43,6 +43,8 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
         self.dialogCard.layer.cornerRadius = 8
         self.dialogCard.applyShadowDown(withDepth: 24)
         
+        self.passwordTextField.isSecureTextEntry = true
+        
         self.bottomButtonsStackView.distribution = .fillEqually
         self.bottomButtonsStackView.spacing = 8
         
@@ -63,17 +65,6 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
             .disposed(by: self.disposeBag)
         
         self.viewModel.password
-            .map { next -> String? in
-                if let text = next {
-                    var maskedPassword: String = String.empty
-                    for _ in 0..<text.count {
-                        maskedPassword.append("●")
-                    }
-                    return maskedPassword
-                } else {
-                    return nil
-                }
-            }
             .asDriver(onErrorJustReturn: nil)
             .drive(self.passwordTextField.rx.text)
             .disposed(by: self.disposeBag)
