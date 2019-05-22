@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4895FE1B211D2E4400BD9980 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895FE1A211D2E4400BD9980 /* KeyboardLayoutConstraint.swift */; };
+		96DE15B22295C7C4007A79A7 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; };
+		96DE15B32295C7DA007A79A7 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; };
+		96DE15B42295C7DA007A79A7 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A96870C9220B753A00956B3B /* EmptyableOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870C8220B753A00956B3B /* EmptyableOptional.swift */; };
 		A96870CD220B77E700956B3B /* LaunchScreenViewModel+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870CC220B77E700956B3B /* LaunchScreenViewModel+Tests.swift */; };
 		A96870D2220B794B00956B3B /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870D1220B794B00956B3B /* MockUserService.swift */; };
@@ -84,6 +87,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				96DE15B42295C7DA007A79A7 /* RxRelay.framework in Embed Frameworks */,
 				CD476CA920891899005CE83C /* Swinject.framework in Embed Frameworks */,
 				CD476CA620891889005CE83C /* RxCocoa.framework in Embed Frameworks */,
 				CD476CA220891875005CE83C /* RxSwift.framework in Embed Frameworks */,
@@ -95,6 +99,7 @@
 
 /* Begin PBXFileReference section */
 		4895FE1A211D2E4400BD9980 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		96DE15B12295C7C3007A79A7 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		A96870C8220B753A00956B3B /* EmptyableOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyableOptional.swift; sourceTree = "<group>"; };
 		A96870CC220B77E700956B3B /* LaunchScreenViewModel+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LaunchScreenViewModel+Tests.swift"; sourceTree = "<group>"; };
 		A96870D1220B794B00956B3B /* MockUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
@@ -155,9 +160,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DE15B22295C7C4007A79A7 /* RxRelay.framework in Frameworks */,
 				CD476CA820891899005CE83C /* Swinject.framework in Frameworks */,
 				CD476CA520891889005CE83C /* RxCocoa.framework in Frameworks */,
 				CD476CA120891875005CE83C /* RxSwift.framework in Frameworks */,
+				96DE15B32295C7DA007A79A7 /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,9 +368,12 @@
 				CD476C9E2089171D005CE83C /* Cartfile */,
 				CD476CA720891899005CE83C /* Swinject.framework */,
 				CD476CA420891888005CE83C /* RxCocoa.framework */,
+				96DE15B12295C7C3007A79A7 /* RxRelay.framework */,
 				CD476CA020891875005CE83C /* RxSwift.framework */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		CDFC0CB22089146200099B18 /* Products */ = {
 			isa = PBXGroup;
@@ -581,6 +591,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			name = "Run Script: Copy Frameworks";
 			outputPaths = (
