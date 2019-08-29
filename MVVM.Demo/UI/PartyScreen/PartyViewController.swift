@@ -43,17 +43,13 @@ class PartyViewController: UIViewController, TransitionManageable {
     Observable<Int>
       .interval(RxTimeInterval.milliseconds(400), scheduler: MainScheduler.instance)
       .map { _ in self.viewModel.getNextColor() }
-      .bind { [weak self] color in
-        self?.updatePartyBackground(withColor: color)
-      }
+      .bind { [weak self] in self?.updatePartyBackground(withColor: $0) }
       .disposed(by: self.disposeBag)
     
     Observable<Int>
       .interval(RxTimeInterval.milliseconds(150), scheduler: MainScheduler.instance)
       .map { _ in self.viewModel.getRandomEmoji() }
-      .bind { [weak self] emoji in
-        self?.addEmojiPartyMember(emoji: emoji)
-      }
+      .bind { [weak self] in self?.addEmojiPartyMember(emoji: $0) }
       .disposed(by: self.disposeBag)
   }
   

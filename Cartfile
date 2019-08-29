@@ -1,2 +1,2 @@
-github "Swinject/Swinject"
-github "ReactiveX/RxSwift"
+github "Swinject/Swinject" == 2.6.0
+github "ReactiveX/RxSwift" == 5.0.1

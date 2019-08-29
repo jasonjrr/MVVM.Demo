@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4895FE1B211D2E4400BD9980 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895FE1A211D2E4400BD9980 /* KeyboardLayoutConstraint.swift */; };
+		964040A32318672400ED99BA /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 964040A22318672400ED99BA /* Cartfile.resolved */; };
 		96DE15B22295C7C4007A79A7 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; };
 		96DE15B32295C7DA007A79A7 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; };
 		96DE15B42295C7DA007A79A7 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -99,6 +100,7 @@
 
 /* Begin PBXFileReference section */
 		4895FE1A211D2E4400BD9980 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		964040A22318672400ED99BA /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		96DE15B12295C7C3007A79A7 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		A96870C8220B753A00956B3B /* EmptyableOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyableOptional.swift; sourceTree = "<group>"; };
 		A96870CC220B77E700956B3B /* LaunchScreenViewModel+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LaunchScreenViewModel+Tests.swift"; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				CDFC0CD32089146200099B18 /* MVVM.DemoUITests */,
 				CDFC0CB22089146200099B18 /* Products */,
 				CD476C9E2089171D005CE83C /* Cartfile */,
+				964040A22318672400ED99BA /* Cartfile.resolved */,
 				CD476CA720891899005CE83C /* Swinject.framework */,
 				CD476CA420891888005CE83C /* RxCocoa.framework */,
 				96DE15B12295C7C3007A79A7 /* RxRelay.framework */,
@@ -540,6 +543,7 @@
 				CDFC0CBF2089146200099B18 /* LaunchScreen.storyboard in Resources */,
 				CDFC0CBC2089146200099B18 /* Assets.xcassets in Resources */,
 				CD476C9F2089171D005CE83C /* Cartfile in Resources */,
+				964040A32318672400ED99BA /* Cartfile.resolved in Resources */,
 				CDFC0CBA2089146200099B18 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
