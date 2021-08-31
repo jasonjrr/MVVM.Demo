@@ -23,35 +23,5 @@
             </objects>
             <point key="canvasLocation" x="79" y="33"/>
         </scene>
-        <!--Party View Controller-->
-        <scene sceneID="ydP-om-gL2">
-            <objects>
-                <viewController storyboardIdentifier="PartyViewController" id="yAl-oS-0jM" customClass="PartyViewController" customModule="MVVM_Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aRN-Av-d4i">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2YL-Si-Dg1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="2p2-QB-A3T"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2YL-Si-Dg1" firstAttribute="leading" secondItem="2p2-QB-A3T" secondAttribute="leading" id="HkG-rh-raI"/>
-                            <constraint firstItem="2p2-QB-A3T" firstAttribute="trailing" secondItem="2YL-Si-Dg1" secondAttribute="trailing" id="R7n-Os-077"/>
-                            <constraint firstAttribute="bottom" secondItem="2YL-Si-Dg1" secondAttribute="bottom" id="mDN-68-UWM"/>
-                            <constraint firstItem="2YL-Si-Dg1" firstAttribute="top" secondItem="aRN-Av-d4i" secondAttribute="top" id="ms7-nw-ybs"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundContainer" destination="2YL-Si-Dg1" id="2pI-OT-q0j"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="exR-Jx-2Ag" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="815" y="33"/>
-        </scene>
     </scenes>
 </document>

@@ -1,14 +1,38 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 public class KeyboardLayoutConstraint: NSLayoutConstraint {
+  private var isInitialized: Bool = false
   
-  fileprivate var offset : CGFloat = 0
-  fileprivate var keyboardVisibleHeight : CGFloat = 0
+  fileprivate var offset: CGFloat = 0
+  fileprivate var keyboardVisibleHeight: CGFloat = 0 {
+    didSet { self._keyboardVisibleHeight.accept(self.keyboardVisibleHeight) }
+  }
+  
+  private let _keyboardVisibleHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+  private(set) var keyboardVisibleHeightObservable: Observable<CGFloat>!
+  
+  var customOffset: CGFloat = 0
+  
+  public class func initialize(item view1: UIView, attribute attr1: NSLayoutConstraint.Attribute, relatedBy relation: NSLayoutConstraint.Relation, toItem view2: UIView?, attribute attr2: NSLayoutConstraint.Attribute, multiplier: CGFloat, constant c: CGFloat) -> KeyboardLayoutConstraint {
+    let constraint: KeyboardLayoutConstraint = KeyboardLayoutConstraint(
+      item: view1, attribute: attr1, relatedBy: relation, toItem: view2, attribute: attr2, multiplier: multiplier, constant: c)
+    constraint.initialize()
+    return constraint
+  }
   
   override public func awakeFromNib() {
     super.awakeFromNib()
+    initialize()
+  }
+  
+  private func initialize() {
+    if self.isInitialized { return }
+    self.isInitialized = true
     
     self.offset = constant
+    self.keyboardVisibleHeightObservable = self._keyboardVisibleHeight.asObservable().distinctUntilChanged()
     
     NotificationCenter.default.addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillHideNotification(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -37,7 +61,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
         delay: 0,
         options: options,
         animations: {
-          UIApplication.shared.keyWindow?.layoutIfNeeded()
+          UIApplication.shared.windows.first?.layoutIfNeeded()
           return
       },
         completion: nil)
@@ -61,9 +85,9 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
         delay: 0,
         options: options,
         animations: {
-          UIApplication.shared.keyWindow?.layoutIfNeeded()
+          UIApplication.shared.windows.first?.layoutIfNeeded()
           return
-      },
+        },
         completion: nil)
       
     default:
@@ -72,13 +96,12 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
   }
   
   func updateConstant() {
-    self.constant = self.offset + self.keyboardVisibleHeight
-  }
-}
-
-class TabBarContainedKeyboardLayoutConstraint: KeyboardLayoutConstraint {
-  override func updateConstant() {
-    let safeAreaOffset: CGFloat = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
-    self.constant = self.offset + self.keyboardVisibleHeight - safeAreaOffset
+    if self.keyboardVisibleHeight == 0 {
+      self.constant = self.offset
+    } else {
+      self.constant = self.offset
+        + self.keyboardVisibleHeight
+        + self.customOffset
+    }
   }
 }

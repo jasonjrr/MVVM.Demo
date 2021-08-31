@@ -28,17 +28,6 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
   private let viewModel: LoginViewModel
   private var disposeBag: DisposeBag!
   
-//  class func instantiate(viewModel: LoginViewModel) -> LoginViewController {
-//    let viewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-//    viewController.viewModel = viewModel
-//    
-//    let transitionManager: DialogTransitionManager = DialogTransitionManager()
-//    transitionManager.beforeViewDidLoad(target: viewController, transitionDuration: .dialogMedium)
-//    viewController.transitionManager = transitionManager
-//    
-//    return viewController
-//  }
-  
   init(viewModel: LoginViewModel) {
     self.viewModel = viewModel
     
@@ -65,9 +54,12 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
       make.leading.equalTo(24.0)
       make.top.greaterThanOrEqualTo(24.0)
       make.trailing.equalTo(-24)
-      make.bottom.lessThanOrEqualTo(-24.0)
-      make.centerY.equalTo(self.view.snp.centerYWithinMargins)
+      make.centerY.lessThanOrEqualTo(self.view.snp.centerYWithinMargins)
     }
+    
+    let keyboardConstraint = KeyboardLayoutConstraint.initialize(item: self.view, attribute: .bottom, relatedBy: .greaterThanOrEqual, toItem: self.dialogCard, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+    self.view.addConstraint(keyboardConstraint)
+    keyboardConstraint.isActive = true
     
     self.dialogCard.addSubview(self.dialogCardStackView)
     
@@ -81,6 +73,7 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
     let titleWrapperView = UIView()
     titleWrapperView.addSubview(self.titleLabel)
     self.titleLabel.text = "Login to your fake demo account!"
+    self.titleLabel.numberOfLines = 0
     self.titleLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
     self.titleLabel.snp.makeConstraints { make in
       make.edges.equalToSuperview()
@@ -103,11 +96,13 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
     self.userNameLabel.font = .systemFont(ofSize: 17.0, weight: .medium)
     
     self.userNameTextField.borderStyle = .roundedRect
+    self.userNameTextField.returnKeyType = .done
     
     self.passwordLabel.text = "Password"
     self.passwordLabel.font = .systemFont(ofSize: 17.0, weight: .medium)
     self.passwordTextField.isSecureTextEntry = true
     self.passwordTextField.borderStyle = .roundedRect
+    self.passwordTextField.returnKeyType = .done
     
     self.bottomButtonsStackView.distribution = .fillEqually
     self.bottomButtonsStackView.spacing = 8

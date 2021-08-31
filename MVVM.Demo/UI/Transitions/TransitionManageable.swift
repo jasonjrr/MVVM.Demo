@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TransitionManageable: class {
+protocol TransitionManageable: AnyObject {
     var transitionManager: TransitionManager? { get }
 }
 

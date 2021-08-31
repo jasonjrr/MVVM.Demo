@@ -14,15 +14,10 @@ class LaunchScreenViewController: UIViewController {
   let stackView: UIStackView = UIStackView()
   let loginButton: UIButton = UIButton()
   let partyButton: UIButton = UIButton()
+  let partyButtonTapTarget: UIButton = UIButton()
   
   private let viewModel: LaunchScreenViewModel
   private var disposeBag: DisposeBag!
-  
-//  class func instantiate(viewModel: LaunchScreenViewModel) -> LaunchScreenViewController {
-//    let viewController: LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
-//    viewController.viewModel = viewModel
-//    return viewController
-//  }
   
   init(viewModel: LaunchScreenViewModel) {
     self.viewModel = viewModel
@@ -50,8 +45,10 @@ class LaunchScreenViewController: UIViewController {
       make.centerWithinMargins.equalTo(self.view.snp.centerWithinMargins)
     }
     
+    let partyButtonViewContainer: UIView = UIView()
+    
     self.stackView.addArrangedSubview(self.loginButton)
-    self.stackView.addArrangedSubview(self.partyButton)
+    self.stackView.addArrangedSubview(partyButtonViewContainer)
     
     self.loginButton.backgroundColor = UIColor.white
     self.loginButton.titleLabel?.numberOfLines = 0
@@ -64,6 +61,13 @@ class LaunchScreenViewController: UIViewController {
       make.height.equalTo(64.0)
     }
     
+    partyButtonViewContainer.addSubview(self.partyButton)
+    partyButtonViewContainer.addSubview(self.partyButtonTapTarget)
+    
+    self.partyButtonTapTarget.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
+    
     self.partyButton.backgroundColor = UIColor.white
     self.partyButton.layer.borderColor = UIColor.red.cgColor
     self.partyButton.layer.borderWidth = 2
@@ -71,6 +75,7 @@ class LaunchScreenViewController: UIViewController {
     self.partyButton.setTitleColor(UIColor.red, for: UIControl.State())
     self.partyButton.setTitle("Just Party", for: UIControl.State())
     self.partyButton.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
       make.height.equalTo(64.0)
     }
     
@@ -90,7 +95,7 @@ class LaunchScreenViewController: UIViewController {
       .bind(to: self.viewModel.logInOutButtonTapped)
       .disposed(by: self.disposeBag)
     
-    self.partyButton.rx.tap
+    self.partyButtonTapTarget.rx.tap
       .bind(to: self.viewModel.launchParty)
       .disposed(by: self.disposeBag)
     

@@ -11,28 +11,37 @@ import RxSwift
 import RxCocoa
 
 class PartyViewController: UIViewController, TransitionManageable {
-  @IBOutlet weak var backgroundContainer: UIView!
+  let backgroundContainer: UIView = UIView()
   
   private(set) var transitionManager: TransitionManager?
   
-  private var viewModel: PartyViewModel!
+  let viewModel: PartyViewModel
   private var disposeBag: DisposeBag!
   
-  class func instantiate(viewModel: PartyViewModel) -> PartyViewController {
-    let viewController: PartyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PartyViewController") as! PartyViewController
-    viewController.viewModel = viewModel
+  init(viewModel: PartyViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
     
     let transitionManager: DropInTransitionManager = DropInTransitionManager()
-    transitionManager.beforeViewDidLoad(sourceViewController: viewController, transitionDuration: .fullScreen)
-    viewController.transitionManager = transitionManager
-    
-    return viewController
+    transitionManager.beforeViewDidLoad(sourceViewController: self, transitionDuration: .fullScreen)
+    self.transitionManager = transitionManager
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.view.backgroundColor = .black
     self.view.clipsToBounds = true
+    
+    self.view.addSubview(self.backgroundContainer)
+    
     self.backgroundContainer.clipsToBounds = true
+    self.backgroundContainer.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
     
     self.disposeBag = DisposeBag()
     
@@ -41,7 +50,7 @@ class PartyViewController: UIViewController, TransitionManageable {
       .disposed(by: self.disposeBag)
     
     Observable<Int>
-      .interval(RxTimeInterval.milliseconds(400), scheduler: MainScheduler.instance)
+      .interval(RxTimeInterval.milliseconds(600), scheduler: MainScheduler.instance)
       .map { _ in self.viewModel.getNextColor() }
       .bind { [weak self] in self?.updatePartyBackground(withColor: $0) }
       .disposed(by: self.disposeBag)

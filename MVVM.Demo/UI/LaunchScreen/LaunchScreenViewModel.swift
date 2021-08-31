@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol LaunchScreenViewModelDelegate: class {
+protocol LaunchScreenViewModelDelegate: AnyObject {
   func launchScreenViewModelDidLaunchLogIn(_ source: LaunchScreenViewModel)
   func launchScreenViewModelDidLaunchParty(_ source: LaunchScreenViewModel)
 }
