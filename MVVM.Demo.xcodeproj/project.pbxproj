@@ -14,6 +14,7 @@
 		96BA613F26DE9C770065A660 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA613E26DE9C770065A660 /* RxRelay */; };
 		96BA614126DE9C770065A660 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA614026DE9C770065A660 /* RxCocoa */; };
 		96BA614326DE9C770065A660 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA614226DE9C770065A660 /* RxBlocking */; };
+		96BA614626DE9D9A0065A660 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA614526DE9D9A0065A660 /* SnapKit */; };
 		A96870C9220B753A00956B3B /* EmptyableOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870C8220B753A00956B3B /* EmptyableOptional.swift */; };
 		A96870CD220B77E700956B3B /* LaunchScreenViewModel+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870CC220B77E700956B3B /* LaunchScreenViewModel+Tests.swift */; };
 		A96870D2220B794B00956B3B /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870D1220B794B00956B3B /* MockUserService.swift */; };
@@ -151,6 +152,7 @@
 				96BA613B26DE9C770065A660 /* RxSwift in Frameworks */,
 				96BA614126DE9C770065A660 /* RxCocoa in Frameworks */,
 				96BA612D26DE9BD60065A660 /* Swinject in Frameworks */,
+				96BA614626DE9D9A0065A660 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +431,7 @@
 				96BA613A26DE9C770065A660 /* RxSwift */,
 				96BA613E26DE9C770065A660 /* RxRelay */,
 				96BA614026DE9C770065A660 /* RxCocoa */,
+				96BA614526DE9D9A0065A660 /* SnapKit */,
 			);
 			productName = MVVM.Demo;
 			productReference = CDFC0CB12089146200099B18 /* MVVM.Demo.app */;
@@ -516,6 +519,7 @@
 			packageReferences = (
 				96BA612B26DE9BD60065A660 /* XCRemoteSwiftPackageReference "Swinject" */,
 				96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				96BA614426DE9D9A0065A660 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = CDFC0CB22089146200099B18 /* Products */;
 			projectDirPath = "";
@@ -798,6 +802,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HF4XEL6XEU;
 				INFOPLIST_FILE = MVVM.Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,6 +821,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HF4XEL6XEU;
 				INFOPLIST_FILE = MVVM.Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -979,6 +985,14 @@
 				minimumVersion = 6.2.0;
 			};
 		};
+		96BA614426DE9D9A0065A660 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1011,6 +1025,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxBlocking;
+		};
+		96BA614526DE9D9A0065A660 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96BA614426DE9D9A0065A660 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

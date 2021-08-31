@@ -9,9 +9,9 @@
 
 import UIKit
 
-protocol DialogTransitionTarget: class {
+protocol DialogTransitionTarget: AnyObject {
     var view: UIView! { get }
-    var dialogCard: UIView! { get }
+    var dialogCard: UIView { get }
     
     var transitioningDelegate: UIViewControllerTransitioningDelegate? { get set }
     var modalPresentationStyle: UIModalPresentationStyle { get set }

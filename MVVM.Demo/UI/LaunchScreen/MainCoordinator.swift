@@ -44,9 +44,9 @@ class MainCoordinator: Coordinator {
 
 extension MainCoordinator: LaunchScreenViewModelDelegate {
     func launchScreenViewModelDidLaunchLogIn(_ source: LaunchScreenViewModel) {
-        let viewController: LoginViewController = LoginViewController.instantiate(
-            viewModel: self.resolver.resolve(LoginViewModel.self)!
-                .setup(completion: userDidLogIn))
+        let viewController: LoginViewController = LoginViewController(
+          viewModel: self.resolver.resolve(LoginViewModel.self)!
+            .setup(completion: { [weak self] in self?.userDidLogIn() }))
         self.rootNavigationController.present(viewController, animated: true, completion: nil)
     }
     

@@ -9,44 +9,123 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SnapKit
 
 class LoginViewController: UIViewController, DialogTransitionTarget {
-  @IBOutlet weak var dialogCard: UIView!
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var userNameLabel: UILabel!
-  @IBOutlet weak var userNameTextField: UITextField!
-  @IBOutlet weak var passwordLabel: UILabel!
-  @IBOutlet weak var passwordTextField: UITextField!
-  @IBOutlet weak var bottomButtonsStackView: UIStackView!
-  @IBOutlet weak var cancelButton: UIButton!
-  @IBOutlet weak var loginButton: UIButton!
+  let dialogCard: UIView = UIView()
+  let dialogCardStackView: UIStackView = UIStackView()
+  let titleLabel: UILabel = UILabel()
+  let userNameLabel: UILabel = UILabel()
+  let userNameTextField: UITextField = UITextField()
+  let passwordLabel: UILabel = UILabel()
+  let passwordTextField: UITextField = UITextField()
+  let bottomButtonsStackView: UIStackView = UIStackView()
+  let cancelButton: UIButton = UIButton()
+  let loginButton: UIButton = UIButton()
   
   private(set) var transitionManager: TransitionManager?
   
   private var viewModel: LoginViewModel!
   private var disposeBag: DisposeBag!
   
-  class func instantiate(viewModel: LoginViewModel) -> LoginViewController {
-    let viewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-    viewController.viewModel = viewModel
-    
+//  class func instantiate(viewModel: LoginViewModel) -> LoginViewController {
+//    let viewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//    viewController.viewModel = viewModel
+//    
+//    let transitionManager: DialogTransitionManager = DialogTransitionManager()
+//    transitionManager.beforeViewDidLoad(target: viewController, transitionDuration: .dialogMedium)
+//    viewController.transitionManager = transitionManager
+//    
+//    return viewController
+//  }
+  
+  init(viewModel: LoginViewModel) {
+    super.init(nibName: nil, bundle: nil)
+
+    self.viewModel = viewModel
+
     let transitionManager: DialogTransitionManager = DialogTransitionManager()
-    transitionManager.beforeViewDidLoad(target: viewController, transitionDuration: .dialogMedium)
-    viewController.transitionManager = transitionManager
-    
-    return viewController
+    transitionManager.beforeViewDidLoad(target: self, transitionDuration: .dialogMedium)
+    self.transitionManager = transitionManager
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.view.addSubview(self.dialogCard)
+    
+    self.dialogCard.backgroundColor = .systemBackground
     self.dialogCard.layer.cornerRadius = 8
     self.dialogCard.applyShadowDown(withDepth: 24)
+    self.dialogCard.snp.makeConstraints { make in
+      make.leading.equalTo(24.0)
+      make.top.greaterThanOrEqualTo(24.0)
+      make.trailing.equalTo(-24)
+      make.bottom.lessThanOrEqualTo(-24.0)
+      make.centerY.equalTo(self.view.snp.centerY)
+    }
     
+    self.dialogCard.addSubview(self.dialogCardStackView)
+    
+    self.dialogCardStackView.axis = .vertical
+    self.dialogCardStackView.snp.makeConstraints { make in
+      make.leading.top.equalTo(24.0)
+      make.trailing.equalTo(-24.0)
+      make.bottom.equalTo(-16.0)
+    }
+    
+    let titleWrapperView = UIView()
+    titleWrapperView.addSubview(self.titleLabel)
+    self.titleLabel.text = "Login to your fake demo account!"
+    self.titleLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
+    self.titleLabel.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
+    
+    self.dialogCardStackView.addArrangedSubview(titleWrapperView)
+    self.dialogCardStackView.addArrangedSubview(self.userNameLabel)
+    self.dialogCardStackView.addArrangedSubview(self.userNameTextField)
+    self.dialogCardStackView.addArrangedSubview(self.passwordLabel)
+    self.dialogCardStackView.addArrangedSubview(self.passwordTextField)
+    self.dialogCardStackView.addArrangedSubview(self.bottomButtonsStackView)
+    
+    self.dialogCardStackView.setCustomSpacing(24.0, after: titleWrapperView)
+    self.dialogCardStackView.setCustomSpacing(8.0, after: self.userNameLabel)
+    self.dialogCardStackView.setCustomSpacing(16.0, after: self.userNameTextField)
+    self.dialogCardStackView.setCustomSpacing(8.0, after: self.passwordLabel)
+    self.dialogCardStackView.setCustomSpacing(16.0, after: self.passwordTextField)
+    
+    self.userNameLabel.text = "Username"
+    self.userNameLabel.font = .systemFont(ofSize: 17.0, weight: .medium)
+    
+    self.userNameTextField.borderStyle = .roundedRect
+    
+    self.passwordLabel.text = "Password"
+    self.passwordLabel.font = .systemFont(ofSize: 17.0, weight: .medium)
     self.passwordTextField.isSecureTextEntry = true
+    self.passwordTextField.borderStyle = .roundedRect
     
     self.bottomButtonsStackView.distribution = .fillEqually
     self.bottomButtonsStackView.spacing = 8
+    self.bottomButtonsStackView.snp.makeConstraints { make in
+      make.height.equalTo(48.0)
+    }
+    
+    self.bottomButtonsStackView.addArrangedSubview(self.cancelButton)
+    self.bottomButtonsStackView.addArrangedSubview(self.loginButton)
+    
+    self.cancelButton.setTitle("Cancel", for: .normal)
+    self.cancelButton.titleLabel?.font = .systemFont(ofSize: 18.0, weight: .bold)
+    self.cancelButton.setTitleColor(.systemBlue, for: .normal)
+    
+    self.loginButton.setTitle("Login", for: .normal)
+    self.loginButton.titleLabel?.font = .systemFont(ofSize: 18.0, weight: .medium)
+    self.loginButton.setTitleColor(.systemBlue, for: .normal)
+    self.loginButton.setTitleColor(.secondaryLabel, for: .disabled)
     
     self.disposeBag = DisposeBag()
     bindViewModel()
@@ -70,9 +149,7 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
       .disposed(by: self.disposeBag)
     
     self.viewModel.canLogIn
-      .do(onNext: { [weak self] in self?.loginButton.isUserInteractionEnabled = $0 })
-      .map { $0 ? UIColor.orange : UIColor.lightGray }
-      .drive(onNext: { [weak self] in self?.loginButton.tintColor = $0 })
+      .drive(onNext: { [weak self] in self?.loginButton.isEnabled = $0 })
       .disposed(by: self.disposeBag)
   }
   
