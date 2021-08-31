@@ -28,8 +28,7 @@ class MainCoordinator: Coordinator {
         
         let viewModel: LaunchScreenViewModel = self.resolver.resolve(LaunchScreenViewModel.self)!
             .setup(delegate: self)
-        let viewController: LaunchScreenViewController = LaunchScreenViewController.instantiate(
-            viewModel: viewModel)
+        let viewController: LaunchScreenViewController = LaunchScreenViewController(viewModel: viewModel)
         self.rootNavigationController.viewControllers = [viewController]
         
         return self.rootNavigationController

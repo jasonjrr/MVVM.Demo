@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
   
   private(set) var transitionManager: TransitionManager?
   
-  private var viewModel: LoginViewModel!
+  private let viewModel: LoginViewModel
   private var disposeBag: DisposeBag!
   
 //  class func instantiate(viewModel: LoginViewModel) -> LoginViewController {
@@ -40,9 +40,9 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
 //  }
   
   init(viewModel: LoginViewModel) {
-    super.init(nibName: nil, bundle: nil)
-
     self.viewModel = viewModel
+    
+    super.init(nibName: nil, bundle: nil)
 
     let transitionManager: DialogTransitionManager = DialogTransitionManager()
     transitionManager.beforeViewDidLoad(target: self, transitionDuration: .dialogMedium)
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, DialogTransitionTarget {
       make.top.greaterThanOrEqualTo(24.0)
       make.trailing.equalTo(-24)
       make.bottom.lessThanOrEqualTo(-24.0)
-      make.centerY.equalTo(self.view.snp.centerY)
+      make.centerY.equalTo(self.view.snp.centerYWithinMargins)
     }
     
     self.dialogCard.addSubview(self.dialogCardStackView)

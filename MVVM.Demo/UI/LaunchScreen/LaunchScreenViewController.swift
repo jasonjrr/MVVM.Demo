@@ -11,17 +11,26 @@ import RxSwift
 import RxCocoa
 
 class LaunchScreenViewController: UIViewController {
-  @IBOutlet weak var stackView: UIStackView!
-  @IBOutlet weak var loginButton: UIButton!
-  @IBOutlet weak var partyButton: UIButton!
+  let stackView: UIStackView = UIStackView()
+  let loginButton: UIButton = UIButton()
+  let partyButton: UIButton = UIButton()
   
-  private var viewModel: LaunchScreenViewModel!
+  private let viewModel: LaunchScreenViewModel
   private var disposeBag: DisposeBag!
   
-  class func instantiate(viewModel: LaunchScreenViewModel) -> LaunchScreenViewController {
-    let viewController: LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
-    viewController.viewModel = viewModel
-    return viewController
+//  class func instantiate(viewModel: LaunchScreenViewModel) -> LaunchScreenViewController {
+//    let viewController: LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
+//    viewController.viewModel = viewModel
+//    return viewController
+//  }
+  
+  init(viewModel: LaunchScreenViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   override func viewDidLoad() {
@@ -29,7 +38,20 @@ class LaunchScreenViewController: UIViewController {
     
     self.title = "Welcome to the DEMO"
     
-    self.stackView.spacing = 16
+    self.view.backgroundColor = .systemBackground
+    self.view.addSubview(self.stackView)
+    
+    self.stackView.axis = .vertical
+    self.stackView.spacing = 16.0
+    self.stackView.snp.makeConstraints { make in
+      make.leading.top.greaterThanOrEqualTo(24.0)
+      make.trailing.bottom.lessThanOrEqualTo(-24.0)
+      make.width.equalTo(160.0)
+      make.centerWithinMargins.equalTo(self.view.snp.centerWithinMargins)
+    }
+    
+    self.stackView.addArrangedSubview(self.loginButton)
+    self.stackView.addArrangedSubview(self.partyButton)
     
     self.loginButton.backgroundColor = UIColor.white
     self.loginButton.titleLabel?.numberOfLines = 0
@@ -38,6 +60,9 @@ class LaunchScreenViewController: UIViewController {
     self.loginButton.layer.cornerRadius = 4
     self.loginButton.setTitleColor(UIColor.orange, for: UIControl.State())
     self.loginButton.setTitle("Faux Login", for: UIControl.State())
+    self.loginButton.snp.makeConstraints { make in
+      make.height.equalTo(64.0)
+    }
     
     self.partyButton.backgroundColor = UIColor.white
     self.partyButton.layer.borderColor = UIColor.red.cgColor
@@ -45,6 +70,9 @@ class LaunchScreenViewController: UIViewController {
     self.partyButton.layer.cornerRadius = 4
     self.partyButton.setTitleColor(UIColor.red, for: UIControl.State())
     self.partyButton.setTitle("Just Party", for: UIControl.State())
+    self.partyButton.snp.makeConstraints { make in
+      make.height.equalTo(64.0)
+    }
     
     self.disposeBag = DisposeBag()
     bindViewModel()
