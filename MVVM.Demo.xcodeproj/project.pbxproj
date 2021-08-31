@@ -3,15 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4895FE1B211D2E4400BD9980 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895FE1A211D2E4400BD9980 /* KeyboardLayoutConstraint.swift */; };
-		964040A32318672400ED99BA /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 964040A22318672400ED99BA /* Cartfile.resolved */; };
-		96DE15B22295C7C4007A79A7 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; };
-		96DE15B32295C7DA007A79A7 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; };
-		96DE15B42295C7DA007A79A7 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96DE15B12295C7C3007A79A7 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96BA612D26DE9BD60065A660 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA612C26DE9BD60065A660 /* Swinject */; };
+		96BA613B26DE9C770065A660 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA613A26DE9C770065A660 /* RxSwift */; };
+		96BA613D26DE9C770065A660 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA613C26DE9C770065A660 /* RxTest */; };
+		96BA613F26DE9C770065A660 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA613E26DE9C770065A660 /* RxRelay */; };
+		96BA614126DE9C770065A660 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA614026DE9C770065A660 /* RxCocoa */; };
+		96BA614326DE9C770065A660 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA614226DE9C770065A660 /* RxBlocking */; };
 		A96870C9220B753A00956B3B /* EmptyableOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870C8220B753A00956B3B /* EmptyableOptional.swift */; };
 		A96870CD220B77E700956B3B /* LaunchScreenViewModel+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870CC220B77E700956B3B /* LaunchScreenViewModel+Tests.swift */; };
 		A96870D2220B794B00956B3B /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870D1220B794B00956B3B /* MockUserService.swift */; };
@@ -28,13 +30,6 @@
 		A96870F1220CAC3C00956B3B /* AppAssembly+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870F0220CAC3C00956B3B /* AppAssembly+Tests.swift */; };
 		A96870F5220CC4B100956B3B /* TransitionSpeed+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870F4220CC4B100956B3B /* TransitionSpeed+Tests.swift */; };
 		A96870F7220CC5EC00956B3B /* NavigationControllerTransitionManager+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870F6220CC5EC00956B3B /* NavigationControllerTransitionManager+Tests.swift */; };
-		CD476C9F2089171D005CE83C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = CD476C9E2089171D005CE83C /* Cartfile */; };
-		CD476CA120891875005CE83C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD476CA020891875005CE83C /* RxSwift.framework */; };
-		CD476CA220891875005CE83C /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD476CA020891875005CE83C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CD476CA520891889005CE83C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD476CA420891888005CE83C /* RxCocoa.framework */; };
-		CD476CA620891889005CE83C /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD476CA420891888005CE83C /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CD476CA820891899005CE83C /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD476CA720891899005CE83C /* Swinject.framework */; };
-		CD476CA920891899005CE83C /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD476CA720891899005CE83C /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CD476CAD208919BA005CE83C /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD476CAC208919BA005CE83C /* AppAssembly.swift */; };
 		CD476CAF20891A3A005CE83C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD476CAE20891A3A005CE83C /* Coordinator.swift */; };
 		CD476CB420891DA9005CE83C /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD476CB320891DA9005CE83C /* LaunchScreenViewController.swift */; };
@@ -88,10 +83,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				96DE15B42295C7DA007A79A7 /* RxRelay.framework in Embed Frameworks */,
-				CD476CA920891899005CE83C /* Swinject.framework in Embed Frameworks */,
-				CD476CA620891889005CE83C /* RxCocoa.framework in Embed Frameworks */,
-				CD476CA220891875005CE83C /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,8 +91,6 @@
 
 /* Begin PBXFileReference section */
 		4895FE1A211D2E4400BD9980 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
-		964040A22318672400ED99BA /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
-		96DE15B12295C7C3007A79A7 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		A96870C8220B753A00956B3B /* EmptyableOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyableOptional.swift; sourceTree = "<group>"; };
 		A96870CC220B77E700956B3B /* LaunchScreenViewModel+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LaunchScreenViewModel+Tests.swift"; sourceTree = "<group>"; };
 		A96870D1220B794B00956B3B /* MockUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
@@ -118,10 +107,6 @@
 		A96870F0220CAC3C00956B3B /* AppAssembly+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppAssembly+Tests.swift"; sourceTree = "<group>"; };
 		A96870F4220CC4B100956B3B /* TransitionSpeed+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransitionSpeed+Tests.swift"; sourceTree = "<group>"; };
 		A96870F6220CC5EC00956B3B /* NavigationControllerTransitionManager+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationControllerTransitionManager+Tests.swift"; sourceTree = "<group>"; };
-		CD476C9E2089171D005CE83C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		CD476CA020891875005CE83C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		CD476CA420891888005CE83C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		CD476CA720891899005CE83C /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		CD476CAC208919BA005CE83C /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		CD476CAE20891A3A005CE83C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CD476CB320891DA9005CE83C /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
@@ -162,11 +147,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DE15B22295C7C4007A79A7 /* RxRelay.framework in Frameworks */,
-				CD476CA820891899005CE83C /* Swinject.framework in Frameworks */,
-				CD476CA520891889005CE83C /* RxCocoa.framework in Frameworks */,
-				CD476CA120891875005CE83C /* RxSwift.framework in Frameworks */,
-				96DE15B32295C7DA007A79A7 /* RxRelay.framework in Frameworks */,
+				96BA613F26DE9C770065A660 /* RxRelay in Frameworks */,
+				96BA613B26DE9C770065A660 /* RxSwift in Frameworks */,
+				96BA614126DE9C770065A660 /* RxCocoa in Frameworks */,
+				96BA612D26DE9BD60065A660 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +158,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BA613D26DE9C770065A660 /* RxTest in Frameworks */,
+				96BA614326DE9C770065A660 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,12 +353,6 @@
 				CDFC0CC82089146200099B18 /* MVVM.DemoTests */,
 				CDFC0CD32089146200099B18 /* MVVM.DemoUITests */,
 				CDFC0CB22089146200099B18 /* Products */,
-				CD476C9E2089171D005CE83C /* Cartfile */,
-				964040A22318672400ED99BA /* Cartfile.resolved */,
-				CD476CA720891899005CE83C /* Swinject.framework */,
-				CD476CA420891888005CE83C /* RxCocoa.framework */,
-				96DE15B12295C7C3007A79A7 /* RxRelay.framework */,
-				CD476CA020891875005CE83C /* RxSwift.framework */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -438,13 +418,18 @@
 				CDFC0CAE2089146200099B18 /* Frameworks */,
 				CDFC0CAF2089146200099B18 /* Resources */,
 				CD476CA320891875005CE83C /* Embed Frameworks */,
-				CD476CAA208918D4005CE83C /* Run Script: Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MVVM.Demo;
+			packageProductDependencies = (
+				96BA612C26DE9BD60065A660 /* Swinject */,
+				96BA613A26DE9C770065A660 /* RxSwift */,
+				96BA613E26DE9C770065A660 /* RxRelay */,
+				96BA614026DE9C770065A660 /* RxCocoa */,
+			);
 			productName = MVVM.Demo;
 			productReference = CDFC0CB12089146200099B18 /* MVVM.Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -464,6 +449,10 @@
 				CDFC0CC72089146200099B18 /* PBXTargetDependency */,
 			);
 			name = MVVM.DemoTests;
+			packageProductDependencies = (
+				96BA613C26DE9C770065A660 /* RxTest */,
+				96BA614226DE9C770065A660 /* RxBlocking */,
+			);
 			productName = MVVM.DemoTests;
 			productReference = CDFC0CC52089146200099B18 /* MVVM.DemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -524,6 +513,10 @@
 				Base,
 			);
 			mainGroup = CDFC0CA82089146200099B18;
+			packageReferences = (
+				96BA612B26DE9BD60065A660 /* XCRemoteSwiftPackageReference "Swinject" */,
+				96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = CDFC0CB22089146200099B18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -542,8 +535,6 @@
 			files = (
 				CDFC0CBF2089146200099B18 /* LaunchScreen.storyboard in Resources */,
 				CDFC0CBC2089146200099B18 /* Assets.xcassets in Resources */,
-				CD476C9F2089171D005CE83C /* Cartfile in Resources */,
-				964040A32318672400ED99BA /* Cartfile.resolved in Resources */,
 				CDFC0CBA2089146200099B18 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,24 +571,6 @@
 			name = "Run Script: Copy Frameworks";
 			outputFileListPaths = (
 			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		CD476CAA208918D4005CE83C /* Run Script: Copy Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
-			);
-			name = "Run Script: Copy Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -811,7 +784,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -823,12 +797,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HF4XEL6XEU;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = MVVM.Demo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.demo.mvvm.MVVM-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -842,12 +815,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HF4XEL6XEU;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = MVVM.Demo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.demo.mvvm.MVVM-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -866,7 +838,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = MVVM.DemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
 				NEW_SETTING = "";
 				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-DemoTests";
@@ -888,7 +865,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = MVVM.DemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
 				NEW_SETTING = "";
 				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-DemoTests";
@@ -905,7 +887,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MVVM.DemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-DemoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -920,7 +907,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MVVM.DemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autogravity.demo.mvvm.MVVM-DemoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -969,6 +961,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96BA612B26DE9BD60065A660 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.8.0;
+			};
+		};
+		96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96BA612C26DE9BD60065A660 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96BA612B26DE9BD60065A660 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		96BA613A26DE9C770065A660 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		96BA613C26DE9C770065A660 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		96BA613E26DE9C770065A660 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		96BA614026DE9C770065A660 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		96BA614226DE9C770065A660 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96BA613926DE9C770065A660 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CDFC0CA92089146200099B18 /* Project object */;
 }
