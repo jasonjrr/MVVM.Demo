@@ -15,6 +15,7 @@
 		96BA614126DE9C770065A660 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA614026DE9C770065A660 /* RxCocoa */; };
 		96BA614326DE9C770065A660 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA614226DE9C770065A660 /* RxBlocking */; };
 		96BA614626DE9D9A0065A660 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA614526DE9D9A0065A660 /* SnapKit */; };
+		96BCAF7C26DEB5AC0044EB8F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96BCAF7B26DEB5AC0044EB8F /* README.md */; };
 		A96870C9220B753A00956B3B /* EmptyableOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870C8220B753A00956B3B /* EmptyableOptional.swift */; };
 		A96870CD220B77E700956B3B /* LaunchScreenViewModel+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870CC220B77E700956B3B /* LaunchScreenViewModel+Tests.swift */; };
 		A96870D2220B794B00956B3B /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96870D1220B794B00956B3B /* MockUserService.swift */; };
@@ -92,6 +93,7 @@
 
 /* Begin PBXFileReference section */
 		4895FE1A211D2E4400BD9980 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		96BCAF7B26DEB5AC0044EB8F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A96870C8220B753A00956B3B /* EmptyableOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyableOptional.swift; sourceTree = "<group>"; };
 		A96870CC220B77E700956B3B /* LaunchScreenViewModel+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LaunchScreenViewModel+Tests.swift"; sourceTree = "<group>"; };
 		A96870D1220B794B00956B3B /* MockUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 		CDFC0CA82089146200099B18 = {
 			isa = PBXGroup;
 			children = (
+				96BCAF7B26DEB5AC0044EB8F /* README.md */,
 				CDFC0CB32089146200099B18 /* MVVM.Demo */,
 				CDFC0CC82089146200099B18 /* MVVM.DemoTests */,
 				CDFC0CD32089146200099B18 /* MVVM.DemoUITests */,
@@ -538,6 +541,7 @@
 			files = (
 				CDFC0CBF2089146200099B18 /* LaunchScreen.storyboard in Resources */,
 				CDFC0CBC2089146200099B18 /* Assets.xcassets in Resources */,
+				96BCAF7C26DEB5AC0044EB8F /* README.md in Resources */,
 				CDFC0CBA2089146200099B18 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
