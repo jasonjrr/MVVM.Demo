@@ -9,4 +9,4 @@ This is a demo application used to educate and interview iOS Engineers.
 
 ## Learning Opportunities/Interview Questions
 - Quickly look through the source code to understand the important area of the architecture.
-- Following the patterens within the source code, create a new screen that allows the user to select which emoji will be shown within the app.
+- Following the patterns within the source code, create a new screen that allows the user to select which emoji will be shown within the app.
